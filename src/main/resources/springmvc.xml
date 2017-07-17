@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<!-- 配置视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 使用前缀和后缀 -->
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<!-- 使用组件扫描的方式可以一次扫描多个Controller -->
+	<context:component-scan base-package="org.cms.controller"/>
+
+
+	<!-- 访问静态资源文件 -->
+	<!-- <mvc:default-servlet-handler/> 需要在web.xml中配置 -->
+
+	<mvc:resources mapping="/static/**" location="/static/**" />
+
+	<!-- 定义拦截器 
+	<mvc:interceptors>
+		直接定义拦截所有请求
+		<bean class="com.wxisme.ssm.interceptor.IdentityInterceptor"></bean>
+		<mvc:interceptor> 拦截所有路径的请求 包括子路径 <mvc:mapping path="/**"/> <bean 
+			class="com.wxisme.ssm.interceptor.IdentityInterceptor"></bean> </mvc:interceptor>
+	</mvc:interceptors> -->
+
+</beans>
