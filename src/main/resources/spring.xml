@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
 	<aop:config proxy-target-class="true"/>
-	<context:component-scan base-package="org.cms.dao,org.cms.service" />
+	<context:component-scan base-package="org.cms" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
