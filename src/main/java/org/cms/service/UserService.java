@@ -7,6 +7,7 @@ import org.cms.entity.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * Created by a on 2017/7/18.
@@ -27,6 +28,7 @@ public class UserService {
     public User regist(User u) {
         String passwrod = new SimpleHash("md5", u.getPassword(), u.getUsername()).toHex();
         u.setPassword(passwrod);
+        u.setCreateDate(new Date());
         return userBaseDao.add(u);
     }
 

@@ -29,7 +29,7 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- 访问静态资源文件 -->
 	<!-- <mvc:default-servlet-handler/> 需要在web.xml中配置 -->
 
-	<mvc:resources mapping="/static/**" location="/static/**" />
+	<mvc:resources location="/static/" mapping="/static/**"/>
 
 	<!-- 定义拦截器 
 	<mvc:interceptors>
@@ -38,5 +38,11 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 		<mvc:interceptor> 拦截所有路径的请求 包括子路径 <mvc:mapping path="/**"/> <bean 
 			class="com.wxisme.ssm.interceptor.IdentityInterceptor"></bean> </mvc:interceptor>
 	</mvc:interceptors> -->
-
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.cms.entity.MyException">/error</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

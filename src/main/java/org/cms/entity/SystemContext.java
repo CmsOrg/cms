@@ -25,8 +25,6 @@ public class SystemContext {
 	
 	private static ThreadLocal<String> realPath = new ThreadLocal<String>();
 	
-	
-	
 	public static String getRealPath() {
 		return realPath.get();
 	}

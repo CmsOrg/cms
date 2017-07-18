@@ -1,5 +1,6 @@
 package org.cms.realm;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthenticatingRealm;
@@ -32,6 +33,7 @@ public class MyRealm extends AuthorizingRealm {
         if (!user.getPassword().equals(credentials)) {
             throw new IncorrectCredentialsException();
         }
+        SecurityUtils.getSubject().getSession().setAttribute("user",user);
         SimpleAuthenticationInfo ai = new SimpleAuthenticationInfo(principal, credentials, getName());
         ai.setCredentialsSalt(ByteSource.Util.bytes(principal)); //盐是用户名+随机数
         return ai;

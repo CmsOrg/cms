@@ -20,17 +20,7 @@
 		<!-- 过滤链定义 -->
 		<property name="filterChainDefinitions">
 			<value>
-				/sys/login=anon
-				/toLogin=anon
-				/css/**=anon
-				/html/**=anon
-				/images/**=anon
-				/js/**=anon
-				/upload/**=anon
-				<!-- /userList=roles[admin] -->
-				/userList=authc,perms[/userList]
-				/toDeleteUser=authc,perms[/toDeleteUser]
-				/** = authc
+				/** = anon
 			</value>
 		</property>
 	</bean>

@@ -33,9 +33,21 @@ public class User {
 	 */
 	private String nickname;
 	/**
+	 * 邮箱
+	 */
+	private  String email;
+	/**
 	 * 创建时间
 	 */
 	private Date createDate;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Integer getId() {
 		return id;
