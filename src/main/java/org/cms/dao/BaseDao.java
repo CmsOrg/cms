@@ -3,7 +3,6 @@
  */
 package org.cms.dao;
 
-import org.cms.dao.IBaseDao;
 import org.cms.entity.Pager;
 import org.cms.entity.SystemContext;
 import org.hibernate.Query;
@@ -11,8 +10,11 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import javax.persistence.Entity;
 import java.lang.reflect.ParameterizedType;
 import java.math.BigInteger;
 import java.util.Collection;
@@ -25,7 +27,9 @@ import java.util.Set;
  * @author Administrator
  *
  */
-public class BaseDao<T> implements IBaseDao<T> {
+@Repository
+@Scope("prototype")
+public class BaseDao<T> {
 	
 	private SessionFactory sessionFactory;
 	/**
@@ -58,7 +62,6 @@ public class BaseDao<T> implements IBaseDao<T> {
 	/* (non-Javadoc)
 	 * @see org.konghao.baisc.dao.IBaseDao#add(java.lang.Object)
 	 */
-	@Override
 	public T add(T t) {
 		getSession().save(t);
 		return t;
@@ -67,7 +70,6 @@ public class BaseDao<T> implements IBaseDao<T> {
 	/* (non-Javadoc)
 	 * @see org.konghao.baisc.dao.IBaseDao#update(java.lang.Object)
 	 */
-	@Override
 	public void update(T t) {
 		getSession().update(t);
 	}
@@ -75,7 +77,7 @@ public class BaseDao<T> implements IBaseDao<T> {
 	/* (non-Javadoc)
 	 * @see org.konghao.baisc.dao.IBaseDao#delete(int)
 	 */
-	@Override
+	
 	public void delete(int id) {
 		getSession().delete(this.load(id));
 	}
@@ -83,7 +85,7 @@ public class BaseDao<T> implements IBaseDao<T> {
 	/* (non-Javadoc)
 	 * @see org.konghao.baisc.dao.IBaseDao#load(int)
 	 */
-	@Override
+	
 	public T load(int id) {
 		return (T)getSession().load(getClz(), id);
 	}

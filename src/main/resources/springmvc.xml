@@ -14,19 +14,17 @@ http://www.springframework.org/schema/tx
 http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop.xsd">
-
-
+	<!--这句话千万不能掉-->
+	<mvc:annotation-driven/>
+	<!-- 使用组件扫描的方式可以一次扫描多个Controller -->
+	<context:component-scan base-package="org.cms.controller"/>
 	<!-- 配置视图解析器 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 使用前缀和后缀 -->
-		<property name="prefix" value="/"></property>
+		<property name="prefix" value="/WEB-INF/jsp"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-
-	<!-- 使用组件扫描的方式可以一次扫描多个Controller -->
-	<context:component-scan base-package="org.cms.controller"/>
-
 
 	<!-- 访问静态资源文件 -->
 	<!-- <mvc:default-servlet-handler/> 需要在web.xml中配置 -->
