@@ -30,12 +30,7 @@
 		<property name="realm" ref="myRealm" />
 	</bean>
 	<!-- 自定义Realm实现 -->
-	<bean id="myRealm" class="org.cms.realm.MyRealm" >
-		<property name="credentialsMatcher" ref="credentialsMatcher"/>
-	</bean>
-	<bean name="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher  ">
-		<property name="hashAlgorithmName" value="md5"/>
-	</bean>
+	<bean id="myRealm" class="org.cms.realm.MyRealm" />
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 
 </beans>

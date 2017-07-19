@@ -41,7 +41,7 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="org.cms.entity.MyException">/error</prop>
+				<prop key="org.cms.entity.MyException">/sys/error</prop>
 			</props>
 		</property>
 	</bean>
