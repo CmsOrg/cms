@@ -9,6 +9,8 @@
           href="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet"
           href="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/css/bootstrap-table.css">
+    <link type="text/css" rel="stylesheet"
+          href="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/css/bootstrap-datetimepicker.min.css">
     <script type="text/javascript"
             src="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/js/jquery.js"></script>
     <script type="text/javascript"
@@ -17,6 +19,11 @@
             src="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/js/bootstrap-table.js"></script>
     <script type="text/javascript"
             src="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/locale/bootstrap-table-zh-CN.js"></script>
+    <script type="text/javascript"
+            src="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript"
+            src="<%=request.getContextPath()%>/static/bootstrap-3.3.7-dist/locale/bootstrap-datetimepicker.zh-CN.js"></script>
+
     <style>
         #main-nav.nav-tabs.nav-stacked > li > a {
             padding: 10px 8px;
@@ -56,16 +63,20 @@
 
         #content {
             margin-left: 40px;
+            font-size: 12px;
+        }
+
+        .row {
+            width: 100%;
         }
     </style>
     <script type="text/javascript">
         $(function () {
             $(".secondmenu a").click(function () {
                 var url = $(this).data("url");
-                console.log(url)
                 $.get(url, function (data) {
-                    console.log(data);
                     $("#content").empty().append(data);
+//                    $("#content").empty().hide().append(data).show(200);
                 })
             })
         })
@@ -110,20 +121,16 @@
                 </a></li>
             </ul>
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-10">
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="row base-margin" id="query">
-                            <ol class="breadcrumb">
-                                <li><strong><span style="color: #27a0d7">用户列表</span></strong></li>
-                            </ol>
-                        </div>
-                    </div>
+                <div class="row base-margin" id="query">
+                    <ol class="breadcrumb">
+                        <li><strong><span style="color: #27a0d7">用户列表</span></strong></li>
+                    </ol>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12" id="content"></div>
+                <div class="col-xs-11" id="content"></div>
             </div>
         </div>
     </div>

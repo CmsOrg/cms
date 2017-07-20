@@ -24,7 +24,7 @@ public class Pager<T> {
 	/**
 	 * 分页的数据
 	 */
-	private List<T> datas;
+	private List<T> rows;
 	
 	public int getSize() {
 		return size;
@@ -44,10 +44,12 @@ public class Pager<T> {
 	public void setTotal(long total) {
 		this.total = total;
 	}
-	public List<T> getDatas() {
-		return datas;
+
+	public List<T> getRows() {
+		return rows;
 	}
-	public void setDatas(List<T> datas) {
-		this.datas = datas;
+
+	public void setRows(List<T> rows) {
+		this.rows = rows;
 	}
 }

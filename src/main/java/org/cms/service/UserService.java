@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.cms.dao.BaseDao;
+import org.cms.entity.Pager;
 import org.cms.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -35,4 +36,7 @@ public class UserService {
 		return userBaseDao.list("from User");
 	}
 
+    public Pager<User> find() {
+        return userBaseDao.find("from User");
+    }
 }

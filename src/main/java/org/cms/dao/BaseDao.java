@@ -222,10 +222,10 @@ public class BaseDao<T> {
 		Pager<T> pages = new Pager<T> ();
 		setPagers(query,pages);
 		List<T> datas = query.list();
-		pages.setDatas(datas);
-		long total = (Long)cquery.uniqueResult();
-		pages.setTotal(total);
-		return pages;
+        pages.setRows(datas);
+        long total = (Long) cquery.uniqueResult();
+        pages.setTotal(total);
+        return pages;
 	}
 
 	/* (non-Javadoc)
@@ -370,10 +370,10 @@ public class BaseDao<T> {
 			sq.setResultTransformer(Transformers.aliasToBean(clz));
 		}
 		List<N> datas = sq.list();
-		pages.setDatas(datas);
-		long total = ((BigInteger)cquery.uniqueResult()).longValue();
-		pages.setTotal(total);
-		return pages;
+        pages.setRows(datas);
+        long total = ((BigInteger) cquery.uniqueResult()).longValue();
+        pages.setTotal(total);
+        return pages;
 	}
 
 	/* (non-Javadoc)
