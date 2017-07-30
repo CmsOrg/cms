@@ -1,5 +1,8 @@
 package org.cms.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -27,9 +30,10 @@ public class User {
 	/**
 	 * 密码
 	 */
-	private String password;
-	/**
-	 * 昵称
+    @JsonIgnore
+    private String password;
+    /**
+     * 昵称
 	 */
 	private String nickname;
 	/**
@@ -39,7 +43,8 @@ public class User {
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss")
+    private Date createDate;
 
 	public String getEmail() {
 		return email;
