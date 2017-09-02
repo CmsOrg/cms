@@ -1,0 +1,30 @@
+#top{
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+    background-color: #eeeeee;
+    border-bottom: solid 1px #cccccc;
+    margin-bottom: 5px;
+}
+nav.navbar{
+    background-color: #FE0000;
+    color: #ffffff;
+    min-height: 30px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+.nav>li>a{
+    padding-left:45px;
+    padding-right: 45px;
+    color: #ffffff;
+}
+.nav>li{
+    border-right: solid 1px #cccccc;
+}
+.nav>li:hover{
+    background-color: #FE0044;
+}
+.dropdown-menu,.dropdown-menu li{
+    text-align: center;
+}

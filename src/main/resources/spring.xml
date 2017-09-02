@@ -14,7 +14,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/cms" />
 		<property name="username" value="root"></property>
-		<property name="password" value="123456"></property>
+		<property name="password" value="123"></property>
 	</bean>
 
 	<!-- Hibernate SessionFactory -->

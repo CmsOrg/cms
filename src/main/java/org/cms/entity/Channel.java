@@ -29,6 +29,10 @@ public class Channel {
 	 */
 	private String name;
 	/**
+	 * 栏目的类型别名
+	 */
+	private String sn;
+	/**
 	 * 栏目排序
 	 */
 	private Integer orders;
